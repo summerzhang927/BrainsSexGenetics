@@ -44,34 +44,6 @@ h2 {
     border-left: 4px solid #0a2a5e;
 }
 
-h3 {
-    font-size: 1.05em;
-    margin-top: 24px;
-    margin-bottom: 8px;
-    padding: 5px 10px;
-    border-radius: 3px;
-    display: inline-block;
-}
-
-/* 三组颜色的 h3 */
-h3.group-combined {
-    color: #7540A7;
-    border-bottom: 2px solid #7540A7;
-    background-color: #f3eefa;
-}
-
-h3.group-male {
-    color: #2171B5;
-    border-bottom: 2px solid #2171B5;
-    background-color: #e8f2fb;
-}
-
-h3.group-female {
-    color: #CB181D;
-    border-bottom: 2px solid #CB181D;
-    background-color: #fdecea;
-}
-
 p {
     margin: 8px 0 12px 0;
 }
@@ -91,25 +63,10 @@ sup, sub {
 }
 
 /* ==============================
-   色彩标识系统（圆点 + 徽章）
+   三组颜色系统
    ============================== */
 
-/* 小圆点：用于表格行内标识组别 */
-.dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-right: 7px;
-    vertical-align: middle;
-    flex-shrink: 0;
-}
-
-.dot-combined { background-color: #7540A7; }
-.dot-male     { background-color: #2171B5; }
-.dot-female   { background-color: #CB181D; }
-
-/* 徽章：用于顶部概述区域 */
+/* 1. 顶部概述徽章 */
 .badge {
     display: inline-block;
     padding: 3px 10px;
@@ -124,6 +81,58 @@ sup, sub {
 .badge-combined { background-color: #7540A7; }
 .badge-male     { background-color: #2171B5; }
 .badge-female   { background-color: #CB181D; }
+
+/* 2. 表格 Sample Group 列色块标签 */
+.group-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 0.88em;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.group-tag-combined { background-color: #7540A7; }
+.group-tag-male     { background-color: #2171B5; }
+.group-tag-female   { background-color: #CB181D; }
+
+/* 3. 第5部分 h3 色块标题 */
+h3.group-combined,
+h3.group-male,
+h3.group-female {
+    display: inline-block;
+    padding: 5px 16px;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: 1.0em;
+    font-weight: bold;
+    margin-top: 28px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: transparent;
+}
+
+h3.group-combined { background-color: #7540A7; }
+h3.group-male     { background-color: #2171B5; }
+h3.group-female   { background-color: #CB181D; }
+
+/* 4. IDP表格内曼哈顿图链接颜色 */
+a.link-combined { color: #7540A7; font-weight: bold; }
+a.link-male     { color: #2171B5; font-weight: bold; }
+a.link-female   { color: #CB181D; font-weight: bold; }
+
+a.link-combined:hover,
+a.link-male:hover,
+a.link-female:hover {
+    text-decoration: underline;
+}
+
+/* 5. IDP表格内遗传力列文字颜色 */
+.h2-combined { color: #7540A7; font-weight: bold; }
+.h2-male     { color: #2171B5; font-weight: bold; }
+.h2-female   { color: #CB181D; font-weight: bold; }
 
 /* ==============================
    导航栏
@@ -244,7 +253,6 @@ tr:hover td {
     padding: 7px 10px;
 }
 
-/* 模态标签 */
 .tag-smri {
     background-color: #d4edda;
     color: #155724;
@@ -267,19 +275,8 @@ tr:hover td {
     white-space: nowrap;
 }
 
-/* Manhattan 链接颜色 */
-a.link-combined { color: #7540A7; font-weight: bold; }
-a.link-male     { color: #2171B5; font-weight: bold; }
-a.link-female   { color: #CB181D; font-weight: bold; }
-
-a.link-combined:hover,
-a.link-male:hover,
-a.link-female:hover {
-    text-decoration: underline;
-}
-
 /* ==============================
-   搜索栏
+   搜索栏（IDP表格页用）
    ============================== */
 .search-bar {
     display: flex;
