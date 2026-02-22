@@ -1,7 +1,7 @@
-/* ============================
-   全局样式
-   ============================ */
-* {
+/* ==============================
+   Reset & Base
+   ============================== */
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -9,203 +9,335 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #dceefb;  /* 淡蓝色背景，模仿Big40 */
+    background-color: #dceefb;
     color: #1a1a1a;
-    line-height: 1.7;
-    padding: 20px;
+    line-height: 1.75;
+    padding: 24px 16px;
 }
 
 .container {
-    max-width: 1050px;
+    max-width: 1060px;
     margin: 0 auto;
     background-color: #ffffff;
-    padding: 35px 40px;
-    border-radius: 6px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    padding: 40px 48px;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.10);
 }
 
-/* ============================
-   标题样式
-   ============================ */
+/* ==============================
+   Typography
+   ============================== */
 h1 {
-    font-size: 1.9em;
-    color: #004a80;
-    border-bottom: 3px solid #004a80;
+    font-size: 1.85em;
+    color: #0a2a5e;
+    border-bottom: 2px solid #0a2a5e;
     padding-bottom: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 h2 {
-    font-size: 1.35em;
-    color: #005a9e;
-    margin-top: 40px;
+    font-size: 1.25em;
+    color: #0a2a5e;
+    margin-top: 44px;
     margin-bottom: 12px;
-    border-left: 5px solid #005a9e;
-    padding-left: 10px;
+    padding-left: 12px;
+    border-left: 4px solid #0a2a5e;
 }
 
 h3 {
-    font-size: 1.1em;
-    color: #0070c0;
-    margin-top: 20px;
+    font-size: 1.05em;
+    margin-top: 24px;
     margin-bottom: 8px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    display: inline-block;
 }
 
-/* ============================
-   链接样式
-   ============================ */
+/* 三组颜色的 h3 */
+h3.group-combined {
+    color: #7540A7;
+    border-bottom: 2px solid #7540A7;
+    background-color: #f3eefa;
+}
+
+h3.group-male {
+    color: #2171B5;
+    border-bottom: 2px solid #2171B5;
+    background-color: #e8f2fb;
+}
+
+h3.group-female {
+    color: #CB181D;
+    border-bottom: 2px solid #CB181D;
+    background-color: #fdecea;
+}
+
+p {
+    margin: 8px 0 12px 0;
+}
+
 a {
-    color: #0066cc;
+    color: #1a56a0;
     text-decoration: none;
 }
 
 a:hover {
     text-decoration: underline;
-    color: #004499;
+    color: #0a2a5e;
 }
 
-/* ============================
+sup, sub {
+    font-size: 0.75em;
+}
+
+/* ==============================
+   色彩标识系统（圆点 + 徽章）
+   ============================== */
+
+/* 小圆点：用于表格行内标识组别 */
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 7px;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.dot-combined { background-color: #7540A7; }
+.dot-male     { background-color: #2171B5; }
+.dot-female   { background-color: #CB181D; }
+
+/* 徽章：用于顶部概述区域 */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 0.88em;
+    font-weight: bold;
+    margin: 3px 4px 3px 0;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+}
+
+.badge-combined { background-color: #7540A7; }
+.badge-male     { background-color: #2171B5; }
+.badge-female   { background-color: #CB181D; }
+
+/* ==============================
    导航栏
-   ============================ */
+   ============================== */
 .nav-bar {
-    background-color: #e8f4fd;
-    border: 1px solid #b3d4f0;
-    padding: 12px 16px;
-    border-radius: 4px;
-    margin: 20px 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 0;
+    margin: 20px 0 10px 0;
+    border: 1px solid #c5d5e8;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .nav-bar a {
-    font-weight: bold;
-    font-size: 0.95em;
-    white-space: nowrap;
-}
-
-/* ============================
-   信息提示框
-   ============================ */
-.info-box {
-    background-color: #e8f4fd;
-    border-left: 5px solid #0070c0;
-    padding: 14px 18px;
-    margin: 14px 0;
-    border-radius: 0 4px 4px 0;
-    font-size: 0.95em;
-}
-
-/* ============================
-   代码/命令框
-   ============================ */
-.code-box {
-    background-color: #f5f5f5;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    padding: 10px 14px;
-    font-family: 'Courier New', Courier, monospace;
+    flex: 1 1 auto;
+    text-align: center;
+    padding: 9px 12px;
     font-size: 0.88em;
+    font-weight: bold;
+    color: #0a2a5e;
+    background-color: #eef4fb;
+    border-right: 1px solid #c5d5e8;
+    white-space: nowrap;
+    transition: background-color 0.15s;
+}
+
+.nav-bar a:last-child {
+    border-right: none;
+}
+
+.nav-bar a:hover {
+    background-color: #d0e4f7;
+    text-decoration: none;
+}
+
+/* ==============================
+   信息框
+   ============================== */
+.info-box {
+    background-color: #eef4fb;
+    border-left: 4px solid #2171B5;
+    padding: 14px 18px;
+    margin: 14px 0 18px 0;
+    border-radius: 0 3px 3px 0;
+    font-size: 0.94em;
+    line-height: 1.8;
+}
+
+/* ==============================
+   代码框
+   ============================== */
+.code-box {
+    background-color: #f6f6f6;
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+    padding: 10px 16px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.87em;
     overflow-x: auto;
-    margin: 8px 0 14px 0;
-    color: #333;
+    margin: 6px 0 14px 0;
+    color: #222;
     word-break: break-all;
+    line-height: 1.6;
 }
 
 code {
-    background-color: #f0f0f0;
-    padding: 2px 5px;
+    background-color: #efefef;
+    padding: 1px 5px;
     border-radius: 3px;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 0.88em;
+    font-size: 0.87em;
 }
 
-/* ============================
-   表格样式
-   ============================ */
+/* ==============================
+   表格
+   ============================== */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 14px 0 24px 0;
-    font-size: 0.93em;
+    margin: 12px 0 28px 0;
+    font-size: 0.92em;
 }
 
 th {
-    background-color: #005a9e;
-    color: white;
-    padding: 10px 12px;
+    background-color: #0a2a5e;
+    color: #ffffff;
+    padding: 10px 14px;
     text-align: left;
     font-weight: bold;
+    letter-spacing: 0.02em;
 }
 
 td {
-    padding: 9px 12px;
+    padding: 9px 14px;
     border-bottom: 1px solid #dde8f5;
-    vertical-align: top;
+    vertical-align: middle;
+}
+
+tr:last-child td {
+    border-bottom: none;
 }
 
 tr:nth-child(even) td {
-    background-color: #f0f7ff;
+    background-color: #f7faff;
 }
 
 tr:hover td {
-    background-color: #dceefb;
+    background-color: #eef4fb;
 }
 
-/* ============================
-   IDP表格（大表格专用）
-   ============================ */
-.idp-table th {
-    font-size: 0.85em;
-}
-
+/* ==============================
+   IDP 大表格专用
+   ============================== */
+.idp-table th,
 .idp-table td {
-    font-size: 0.85em;
+    font-size: 0.84em;
     padding: 7px 10px;
 }
 
+/* 模态标签 */
 .tag-smri {
-    background-color: #c8e6c9;
-    color: #1b5e20;
-    padding: 2px 6px;
-    border-radius: 3px;
-    font-size: 0.8em;
+    background-color: #d4edda;
+    color: #155724;
+    padding: 2px 7px;
+    border-radius: 2px;
+    font-size: 0.82em;
     font-weight: bold;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
 }
 
 .tag-dmri {
-    background-color: #bbdefb;
-    color: #0d47a1;
-    padding: 2px 6px;
-    border-radius: 3px;
-    font-size: 0.8em;
+    background-color: #d1ecf1;
+    color: #0c5460;
+    padding: 2px 7px;
+    border-radius: 2px;
+    font-size: 0.82em;
     font-weight: bold;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
 }
 
-/* ============================
+/* Manhattan 链接颜色 */
+a.link-combined { color: #7540A7; font-weight: bold; }
+a.link-male     { color: #2171B5; font-weight: bold; }
+a.link-female   { color: #CB181D; font-weight: bold; }
+
+a.link-combined:hover,
+a.link-male:hover,
+a.link-female:hover {
+    text-decoration: underline;
+}
+
+/* ==============================
+   搜索栏
+   ============================== */
+.search-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin: 16px 0;
+}
+
+.search-bar input,
+.search-bar select {
+    padding: 7px 12px;
+    border: 1px solid #a0b8d0;
+    border-radius: 3px;
+    font-size: 0.92em;
+    background-color: #fff;
+    color: #1a1a1a;
+}
+
+.search-bar input {
+    width: 260px;
+}
+
+#resultCount {
+    font-size: 0.88em;
+    color: #555;
+}
+
+/* ==============================
    页脚
-   ============================ */
+   ============================== */
 footer {
-    margin-top: 50px;
+    margin-top: 52px;
     padding-top: 16px;
-    border-top: 1px solid #ccc;
-    color: #777;
-    font-size: 0.85em;
+    border-top: 1px solid #d0d0d0;
     text-align: center;
+    font-size: 0.84em;
+    color: #888;
 }
 
-/* ============================
-   响应式（手机端适配）
-   ============================ */
-@media (max-width: 700px) {
+/* ==============================
+   响应式
+   ============================== */
+@media (max-width: 720px) {
     .container {
         padding: 20px 16px;
     }
     .nav-bar {
         flex-direction: column;
-        gap: 8px;
+    }
+    .nav-bar a {
+        border-right: none;
+        border-bottom: 1px solid #c5d5e8;
     }
     table {
         font-size: 0.8em;
+    }
+    .search-bar input {
+        width: 100%;
     }
 }
