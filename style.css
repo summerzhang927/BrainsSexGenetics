@@ -66,7 +66,7 @@ sup, sub {
    三组颜色系统
    ============================== */
 
-/* 1. 顶部概述徽章 */
+/* --- 1. 顶部概述区徽章（实色背景+白字） --- */
 .badge {
     display: inline-block;
     padding: 3px 10px;
@@ -82,12 +82,12 @@ sup, sub {
 .badge-male     { background-color: #2171B5; }
 .badge-female   { background-color: #CB181D; }
 
-/* 2. 表格 Sample Group 列色块标签 */
+/* --- 2. 表格 Sample Group 列小标签（实色背景+白字） --- */
 .group-tag {
     display: inline-block;
-    padding: 3px 10px;
+    padding: 2px 9px;
     border-radius: 3px;
-    font-size: 0.88em;
+    font-size: 0.85em;
     font-weight: bold;
     color: #ffffff;
     letter-spacing: 0.02em;
@@ -98,27 +98,50 @@ sup, sub {
 .group-tag-male     { background-color: #2171B5; }
 .group-tag-female   { background-color: #CB181D; }
 
-/* 3. 第5部分 h3 色块标题 */
-h3.group-combined,
-h3.group-male,
-h3.group-female {
-    display: inline-block;
-    padding: 5px 16px;
-    border-radius: 3px;
-    color: #ffffff;
-    font-size: 1.0em;
-    font-weight: bold;
+/* --- 3. 第5部分 h3 标题（淡底色+彩色边框+彩色文字） --- */
+/* Combined：淡紫底色 + 紫色边框 + 紫色文字 */
+h3.group-h3-combined {
+    display: block;
+    padding: 6px 14px;
     margin-top: 28px;
     margin-bottom: 10px;
-    border: none;
-    background-color: transparent;
+    border-radius: 3px;
+    font-size: 1.0em;
+    font-weight: bold;
+    background-color: #f3eefa;
+    border: 1.5px solid #7540A7;
+    color: #7540A7;
 }
 
-h3.group-combined { background-color: #7540A7; }
-h3.group-male     { background-color: #2171B5; }
-h3.group-female   { background-color: #CB181D; }
+/* Male：淡蓝底色 + 蓝色边框 + 蓝色文字 */
+h3.group-h3-male {
+    display: block;
+    padding: 6px 14px;
+    margin-top: 28px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    font-size: 1.0em;
+    font-weight: bold;
+    background-color: #e8f2fb;
+    border: 1.5px solid #2171B5;
+    color: #2171B5;
+}
 
-/* 4. IDP表格内曼哈顿图链接颜色 */
+/* Female：淡红底色 + 红色边框 + 红色文字 */
+h3.group-h3-female {
+    display: block;
+    padding: 6px 14px;
+    margin-top: 28px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    font-size: 1.0em;
+    font-weight: bold;
+    background-color: #fdecea;
+    border: 1.5px solid #CB181D;
+    color: #CB181D;
+}
+
+/* --- 4. IDP表格内曼哈顿图链接颜色 --- */
 a.link-combined { color: #7540A7; font-weight: bold; }
 a.link-male     { color: #2171B5; font-weight: bold; }
 a.link-female   { color: #CB181D; font-weight: bold; }
@@ -129,7 +152,7 @@ a.link-female:hover {
     text-decoration: underline;
 }
 
-/* 5. IDP表格内遗传力列文字颜色 */
+/* --- 5. IDP表格内遗传力列文字颜色 --- */
 .h2-combined { color: #7540A7; font-weight: bold; }
 .h2-male     { color: #2171B5; font-weight: bold; }
 .h2-female   { color: #CB181D; font-weight: bold; }
