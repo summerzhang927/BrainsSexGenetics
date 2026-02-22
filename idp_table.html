@@ -4,12 +4,6 @@
     <meta charset="UTF-8">
     <title>IDP Table – Brain Imaging GWAS</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* 遗传力列的颜色区分 */
-        .h2-combined { color: #7540A7; font-weight: bold; }
-        .h2-male     { color: #2171B5; font-weight: bold; }
-        .h2-female   { color: #CB181D; font-weight: bold; }
-    </style>
 </head>
 <body>
 <div class="container">
@@ -23,9 +17,18 @@
         &bull; <strong>IDP ID</strong>: Unique identifier (links to Manhattan plots for each group)<br>
         &bull; <strong>Modality</strong>: sMRI (structural MRI) or dMRI (diffusion MRI)<br>
         &bull; <strong>N (Combined / Male / Female)</strong>: Actual sample sizes<br>
-        &bull; <strong><em>h</em><sup>2</sup> &plusmn; SE (Combined)</strong>: SNP heritability estimate from sex-combined analysis<br>
-        &bull; <strong><em>h</em><sup>2</sup> &plusmn; SE (Male)</strong>: SNP heritability estimate from male-only analysis<br>
-        &bull; <strong><em>h</em><sup>2</sup> &plusmn; SE (Female)</strong>: SNP heritability estimate from female-only analysis
+        &bull; <strong><em>h</em><sup>2</sup> &plusmn; SE
+            <span class="group-tag group-tag-combined"
+                  style="font-size:0.78em; padding:1px 7px;">Combined</span>
+        </strong>: SNP heritability from sex-combined analysis<br>
+        &bull; <strong><em>h</em><sup>2</sup> &plusmn; SE
+            <span class="group-tag group-tag-male"
+                  style="font-size:0.78em; padding:1px 7px;">Male</span>
+        </strong>: SNP heritability from male-only analysis<br>
+        &bull; <strong><em>h</em><sup>2</sup> &plusmn; SE
+            <span class="group-tag group-tag-female"
+                  style="font-size:0.78em; padding:1px 7px;">Female</span>
+        </strong>: SNP heritability from female-only analysis
     </div>
 
     <!-- 搜索和筛选 -->
@@ -53,12 +56,27 @@
                 <th>N<br>(Combined)</th>
                 <th>N<br>(Male)</th>
                 <th>N<br>(Female)</th>
-                <th><em>h</em><sup>2</sup> &plusmn; SE<br>
-                    <span class="h2-combined">(Combined)</span></th>
-                <th><em>h</em><sup>2</sup> &plusmn; SE<br>
-                    <span class="h2-male">(Male)</span></th>
-                <th><em>h</em><sup>2</sup> &plusmn; SE<br>
-                    <span class="h2-female">(Female)</span></th>
+                <th>
+                    <em>h</em><sup>2</sup> &plusmn; SE<br>
+                    <span class="group-tag group-tag-combined"
+                          style="font-size:0.75em; padding:1px 6px; margin-top:3px;">
+                        Combined
+                    </span>
+                </th>
+                <th>
+                    <em>h</em><sup>2</sup> &plusmn; SE<br>
+                    <span class="group-tag group-tag-male"
+                          style="font-size:0.75em; padding:1px 6px; margin-top:3px;">
+                        Male
+                    </span>
+                </th>
+                <th>
+                    <em>h</em><sup>2</sup> &plusmn; SE<br>
+                    <span class="group-tag group-tag-female"
+                          style="font-size:0.75em; padding:1px 6px; margin-top:3px;">
+                        Female
+                    </span>
+                </th>
                 <th>Manhattan Plots</th>
             </tr>
         </thead>
@@ -67,10 +85,8 @@
             <!--
             =====================================================
             示例行（格式模板）
-            注意：
-            - data-modality 填 sMRI 或 dMRI（用于筛选）
-            - Manhattan 链接使用三种颜色的 class
-            - 没有遗传力数据时填 N/A
+            用 Python 脚本 generate_table.py 自动生成805行
+            替换本注释块之间的内容即可
             =====================================================
             -->
             <tr data-modality="sMRI">
@@ -100,14 +116,11 @@
                 </td>
             </tr>
 
-            <!-- 在这里继续添加其余804行，或用Python脚本生成 -->
-
         </tbody>
     </table>
 
 </div>
 
-<!-- 搜索/筛选逻辑 -->
 <script>
 function filterTable() {
     const searchText = document.getElementById('searchInput').value.toLowerCase();
