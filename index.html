@@ -9,32 +9,37 @@
 
 <div class="container">
 
-    <h1>🧠 Brain Imaging GWAS Data</h1>
-    
+    <h1>Brain Imaging GWAS Data</h1>
+
     <!-- 项目概述 -->
     <div class="info-box">
-        <p><strong>Sample description:</strong> UK Biobank participants with brain imaging and genotyping data.</p>
         <p><strong>IDPs analysed:</strong> 805 IDPs — 373 structural MRI (sMRI) + 432 diffusion MRI (dMRI)</p>
-        <p>
-            <strong>Sample sizes:</strong>
-            Combined (n = 45,900) &nbsp;|&nbsp;
-            Male only (n = 22,950) &nbsp;|&nbsp;
-            Female only (n = 22,950)
+        <p><strong>Sample sizes:</strong>
+            <span class="badge badge-combined">Combined &nbsp;n = 45,900</span>
+            <span class="badge badge-male">Male &nbsp;n = 22,950</span>
+            <span class="badge badge-female">Female &nbsp;n = 22,950</span>
         </p>
     </div>
 
-    <!-- 导航快捷栏 -->
+    <!-- 导航栏 -->
     <div class="nav-bar">
-        <a href="#local-peaks">📊 Local Peak Associations</a>
-        <a href="#idp-table">📋 IDP Table</a>
-        <a href="#manhattan">🗺️ Manhattan Plots</a>
-        <a href="#variants">🧬 All Variants</a>
-        <a href="#sumstats">💾 Summary Stats Downloads</a>
+        <a href="#assoc-table">1. Independent Associations</a>
+        <a href="#idp-table">2. IDP Table</a>
+        <a href="#manhattan">3. Manhattan Plots</a>
+        <a href="#variants">4. All Variants</a>
+        <a href="#sumstats">5. Summary Statistics</a>
     </div>
 
-    <!-- ===== 第1部分：局部峰值关联 ===== -->
-    <h2 id="local-peaks">1. Table of Local-Peak Associations (−log₁₀P > 7.5)</h2>
-    <p>Genome-wide significant associations across all 805 IDPs and three sex-stratified analyses.</p>
+
+    <!-- ===== 第1部分 ===== -->
+    <h2 id="assoc-table">
+        1. Table of Independent Associations
+        (<em>P</em> &lt; 6.21 &times; 10<sup>&minus;11</sup>)
+    </h2>
+    <p>
+        Genome-wide independent associations across 805 IDPs from
+        sex-stratified and sex-combined analyses.
+    </p>
     <table>
         <thead>
             <tr>
@@ -45,138 +50,155 @@
         </thead>
         <tbody>
             <tr>
-                <td>Combined (n = 45,900)</td>
-                <td><a href="peaks_combined.html">View Table</a></td>
-                <td><a href="你的OSF链接/peaks_combined.txt">Download .txt</a></td>
+                <td><span class="dot dot-combined"></span>Combined (n = 45,900)</td>
+                <td><a href="peaks_combined.html">View table</a></td>
+                <td><a href="YOUR_OSF_LINK/peaks_combined.txt">peaks_combined.txt</a></td>
             </tr>
             <tr>
-                <td>Male (n = 22,950)</td>
-                <td><a href="peaks_male.html">View Table</a></td>
-                <td><a href="你的OSF链接/peaks_male.txt">Download .txt</a></td>
+                <td><span class="dot dot-male"></span>Male (n = 22,950)</td>
+                <td><a href="peaks_male.html">View table</a></td>
+                <td><a href="YOUR_OSF_LINK/peaks_male.txt">peaks_male.txt</a></td>
             </tr>
             <tr>
-                <td>Female (n = 22,950)</td>
-                <td><a href="peaks_female.html">View Table</a></td>
-                <td><a href="你的OSF链接/peaks_female.txt">Download .txt</a></td>
+                <td><span class="dot dot-female"></span>Female (n = 22,950)</td>
+                <td><a href="peaks_female.html">View table</a></td>
+                <td><a href="YOUR_OSF_LINK/peaks_female.txt">peaks_female.txt</a></td>
             </tr>
         </tbody>
     </table>
 
-    <!-- ===== 第2部分：IDP 列表 ===== -->
+
+    <!-- ===== 第2部分 ===== -->
     <h2 id="idp-table">2. Table of IDPs (Imaging-Derived Phenotypes)</h2>
     <p>
-        This includes names and descriptions of all 805 IDPs, categorised into 
-        <strong>sMRI</strong> (n=373) and <strong>dMRI</strong> (n=432) modalities.
-        Each row links to the Manhattan plot for that IDP under each analysis group.
-        The final columns show genetic heritability h² (and standard error).
+        This includes names and descriptions of all 805 IDPs, categorised into
+        sMRI (n = 373) and dMRI (n = 432) modalities. Each row links to the
+        Manhattan plot for that IDP under each analysis group. The final columns
+        show SNP heritability <em>h</em><sup>2</sup> and standard error for each
+        sex-stratified and sex-combined analysis.
     </p>
     <p>
-        📋 <a href="idp_table.html"><strong>View Full IDP Table (All 805 IDPs)</strong></a>
+        <a href="idp_table.html"><strong>View full IDP table (805 IDPs)</strong></a>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        📥 <a href="你的OSF链接/IDP_manifest.csv">Download IDP List (.csv)</a>
+        <a href="YOUR_OSF_LINK/IDP_manifest.csv">Download IDP list (.csv)</a>
     </p>
 
-    <!-- ===== 第3部分：曼哈顿图 ===== -->
+
+    <!-- ===== 第3部分 ===== -->
     <h2 id="manhattan">3. Manhattan Plots</h2>
-    <p>Combined PDF files containing all Manhattan plots for 805 IDPs.</p>
+    <p>
+        Combined PDF files containing Manhattan plots for all 805 IDPs,
+        provided separately for each analysis group.
+    </p>
     <table>
         <thead>
             <tr>
                 <th>Sample Group</th>
-                <th>File Size (est.)</th>
+                <th>Pages</th>
+                <th>File Size</th>
                 <th>Download</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Combined (n = 45,900)</td>
+                <td><span class="dot dot-combined"></span>Combined (n = 45,900)</td>
+                <td>805</td>
                 <td>~0.8 GB</td>
-                <td><a href="你的OSF链接/manhattan_combined.pdf">📥 Download PDF</a></td>
+                <td><a href="YOUR_OSF_LINK/manhattan_combined.pdf">Download PDF</a></td>
             </tr>
             <tr>
-                <td>Male (n = 22,950)</td>
+                <td><span class="dot dot-male"></span>Male (n = 22,950)</td>
+                <td>805</td>
                 <td>~0.8 GB</td>
-                <td><a href="你的OSF链接/manhattan_male.pdf">📥 Download PDF</a></td>
+                <td><a href="YOUR_OSF_LINK/manhattan_male.pdf">Download PDF</a></td>
             </tr>
             <tr>
-                <td>Female (n = 22,950)</td>
+                <td><span class="dot dot-female"></span>Female (n = 22,950)</td>
+                <td>805</td>
                 <td>~0.8 GB</td>
-                <td><a href="你的OSF链接/manhattan_female.pdf">📥 Download PDF</a></td>
+                <td><a href="YOUR_OSF_LINK/manhattan_female.pdf">Download PDF</a></td>
             </tr>
         </tbody>
     </table>
 
-    <!-- ===== 第4部分：所有变体 ===== -->
+
+    <!-- ===== 第4部分 ===== -->
     <h2 id="variants">4. Table of All Variants (SNPs)</h2>
-    <p>Due to file size, these are provided as compressed raw text downloads only.</p>
+    <p>
+        Due to file size, variant data are provided as a compressed raw text
+        download only. The variant list is identical across all three analysis
+        groups; a single file is provided.
+    </p>
     <p>Each file contains the following columns:</p>
-    <div class="code-box">chr &nbsp; rsid &nbsp; pos &nbsp; a1 &nbsp; a2 &nbsp; freq &nbsp; beta &nbsp; se &nbsp; p</div>
+    <div class="code-box">CHR &nbsp;&nbsp; SNP &nbsp;&nbsp; BP &nbsp;&nbsp; A2 &nbsp;&nbsp; A1 &nbsp;&nbsp; AF &nbsp;&nbsp; INFO &nbsp;&nbsp; MAF &nbsp;&nbsp; BETA &nbsp;&nbsp; SE &nbsp;&nbsp; T &nbsp;&nbsp; P</div>
     <table>
         <thead>
             <tr>
-                <th>Sample Group</th>
-                <th>Download Link</th>
+                <th>Description</th>
+                <th>Download</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Combined (n = 45,900)</td>
-                <td><a href="你的OSF链接/all_variants_combined.txt.gz">📥 Download .txt.gz</a></td>
-            </tr>
-            <tr>
-                <td>Male (n = 22,950)</td>
-                <td><a href="你的OSF链接/all_variants_male.txt.gz">📥 Download .txt.gz</a></td>
-            </tr>
-            <tr>
-                <td>Female (n = 22,950)</td>
-                <td><a href="你的OSF链接/all_variants_female.txt.gz">📥 Download .txt.gz</a></td>
+                <td>All variants across 805 IDPs (sex-combined analysis)</td>
+                <td><a href="YOUR_OSF_LINK/all_variants.txt.gz">all_variants.txt.gz</a></td>
             </tr>
         </tbody>
     </table>
 
-    <!-- ===== 第5部分：Summary Statistics 下载 ===== -->
+
+    <!-- ===== 第5部分 ===== -->
     <h2 id="sumstats">5. Summary Statistics Downloads</h2>
+
     <div class="info-box">
-        <strong>File format:</strong> Each file is a gzipped text file (.txt.gz) for one IDP.<br>
-        <strong>Naming convention:</strong> <code>[group]_XXXX.txt.gz</code> where XXXX is the 4-digit IDP number (0001–0805).<br>
-        <strong>Columns:</strong> CHR, SNP, BP, A1, A2, FREQ, BETA, SE, P
+        <strong>File format:</strong> Each file is a gzipped text file (.txt.gz) containing
+        GWAS summary statistics for one IDP.<br>
+        <strong>Naming convention:</strong>
+        <code>[group]_XXXX.txt.gz</code> where XXXX is the 4-digit IDP number (0001–0805).<br>
+        <strong>Columns:</strong>
+        <code>CHR &nbsp; SNP &nbsp; BP &nbsp; A2 &nbsp; A1 &nbsp; AF &nbsp; INFO &nbsp; MAF &nbsp; BETA &nbsp; SE &nbsp; T &nbsp; P</code>
     </div>
 
-    <!-- 混合样本 -->
-    <h3>A. Combined Sample (n = 45,900)</h3>
-    <p>Example — IDP #1:</p>
-    <div class="code-box">https://osf.io/你的项目ID/combined/combined_0001.txt.gz</div>
-    <p>To batch download using curl (replace 0001 with desired IDP number):</p>
-    <div class="code-box">curl -O -L -C - https://osf.io/你的项目ID/combined/combined_0001.txt.gz</div>
+    <!-- Combined -->
+    <h3 class="group-combined">Combined Sample (n = 45,900)</h3>
+    <p>
+        The download for IDP 1 is:
+    </p>
+    <div class="code-box">YOUR_SERVER_PATH/combined/combined_0001.txt.gz</div>
+    <p>To batch-download using <code>curl</code> (replace 0001 with the desired IDP number):</p>
+    <div class="code-box">curl -O -L -C - YOUR_SERVER_PATH/combined/combined_0001.txt.gz</div>
 
-    <!-- 男性样本 -->
-    <h3>B. Male Only (n = 22,950)</h3>
-    <p>Example — IDP #1:</p>
-    <div class="code-box">https://osf.io/你的项目ID/male/male_0001.txt.gz</div>
-    <div class="code-box">curl -O -L -C - https://osf.io/你的项目ID/male/male_0001.txt.gz</div>
+    <!-- Male -->
+    <h3 class="group-male">Male Only (n = 22,950)</h3>
+    <p>The download for IDP 1 is:</p>
+    <div class="code-box">YOUR_SERVER_PATH/male/male_0001.txt.gz</div>
+    <div class="code-box">curl -O -L -C - YOUR_SERVER_PATH/male/male_0001.txt.gz</div>
 
-    <!-- 女性样本 -->
-    <h3>C. Female Only (n = 22,950)</h3>
-    <p>Example — IDP #1:</p>
-    <div class="code-box">https://osf.io/你的项目ID/female/female_0001.txt.gz</div>
-    <div class="code-box">curl -O -L -C - https://osf.io/你的项目ID/female/female_0001.txt.gz</div>
+    <!-- Female -->
+    <h3 class="group-female">Female Only (n = 22,950)</h3>
+    <p>The download for IDP 1 is:</p>
+    <div class="code-box">YOUR_SERVER_PATH/female/female_0001.txt.gz</div>
+    <div class="code-box">curl -O -L -C - YOUR_SERVER_PATH/female/female_0001.txt.gz</div>
+
 
     <!-- 引用 -->
-    <h2>📖 Citation</h2>
+    <h2>Citation</h2>
     <div class="info-box">
-        如果你使用了这些数据，请引用：<br>
-        <em>[你的名字] et al. (2026). Title of your paper. Journal Name. DOI: xxx</em>
+        If you use these data, please cite:<br>
+        <em>[Your Name] et al. (2026). [Paper title]. [Journal]. DOI: xxx</em>
     </div>
 
     <!-- 联系方式 -->
-    <h2>📧 Contact</h2>
-    <p>For questions, please contact: <a href="mailto:你的邮箱">你的邮箱</a></p>
+    <h2>Contact</h2>
+    <p>
+        For questions, please contact:
+        <a href="mailto:YOUR_EMAIL">YOUR_EMAIL</a>
+    </p>
 
     <footer>
-        <p>Last updated: February 2026 | Hosted on GitHub Pages</p>
+        <p>Last updated: February 2026 &nbsp;|&nbsp; Hosted on GitHub Pages</p>
     </footer>
 
 </div>
-
 </body>
 </html>
