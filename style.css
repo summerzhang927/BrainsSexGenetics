@@ -82,7 +82,7 @@ sup, sub {
 .badge-male     { background-color: #2171B5; }
 .badge-female   { background-color: #CB181D; }
 
-/* --- 2. 整行底色 + 文字颜色（用于第1、3部分表格） --- */
+/* --- 2. 表格整行底色 + 文字颜色 --- */
 
 /* Combined 行：淡紫底色 + 紫色文字 */
 tr.row-combined td {
@@ -90,14 +90,15 @@ tr.row-combined td {
     color: #7540A7;
     font-weight: 600;
 }
-
 tr.row-combined td a {
     color: #7540A7;
 }
-
 tr.row-combined td a:hover {
     color: #4a2070;
     text-decoration: underline;
+}
+tr.row-combined:hover td {
+    background-color: #ead9f7;
 }
 
 /* Male 行：淡蓝底色 + 蓝色文字 */
@@ -106,14 +107,15 @@ tr.row-male td {
     color: #2171B5;
     font-weight: 600;
 }
-
 tr.row-male td a {
     color: #2171B5;
 }
-
 tr.row-male td a:hover {
     color: #144f80;
     text-decoration: underline;
+}
+tr.row-male:hover td {
+    background-color: #d0e8f8;
 }
 
 /* Female 行：淡红底色 + 红色文字 */
@@ -122,58 +124,51 @@ tr.row-female td {
     color: #CB181D;
     font-weight: 600;
 }
-
 tr.row-female td a {
     color: #CB181D;
 }
-
 tr.row-female td a:hover {
     color: #8b0f13;
     text-decoration: underline;
 }
+tr.row-female:hover td {
+    background-color: #fad5d3;
+}
 
-/* 覆盖默认的斑马纹和 hover，防止干扰行颜色 */
-tr.row-combined:hover td { background-color: #ead9f7; }
-tr.row-male:hover td     { background-color: #d0e8f8; }
-tr.row-female:hover td   { background-color: #fad5d3; }
+/* --- 3. 第5部分 h3 标题
+         圆角边框 + 淡底色 + 彩色文字
+         宽度自适应文字（inline-block）       --- */
 
-/* --- 3. 第5部分 h3 标题（淡底色 + 彩色边框 + 彩色文字） --- */
-h3.group-h3-combined {
-    display: block;
-    padding: 6px 14px;
+h3.group-h3-combined,
+h3.group-h3-male,
+h3.group-h3-female {
+    display: inline-block;      /* 宽度随文字自适应 */
+    padding: 5px 18px;
     margin-top: 28px;
     margin-bottom: 10px;
-    border-radius: 3px;
+    border-radius: 6px;         /* 圆角 */
     font-size: 1.0em;
     font-weight: bold;
+}
+
+/* Combined：淡紫底色 + 紫色边框 + 紫色文字 */
+h3.group-h3-combined {
     background-color: #f3eefa;
-    border: 1.5px solid #7540A7;
+    border: 1.8px solid #7540A7;
     color: #7540A7;
 }
 
+/* Male：淡蓝底色 + 蓝色边框 + 蓝色文字 */
 h3.group-h3-male {
-    display: block;
-    padding: 6px 14px;
-    margin-top: 28px;
-    margin-bottom: 10px;
-    border-radius: 3px;
-    font-size: 1.0em;
-    font-weight: bold;
     background-color: #e8f2fb;
-    border: 1.5px solid #2171B5;
+    border: 1.8px solid #2171B5;
     color: #2171B5;
 }
 
+/* Female：淡红底色 + 红色边框 + 红色文字 */
 h3.group-h3-female {
-    display: block;
-    padding: 6px 14px;
-    margin-top: 28px;
-    margin-bottom: 10px;
-    border-radius: 3px;
-    font-size: 1.0em;
-    font-weight: bold;
     background-color: #fdecea;
-    border: 1.5px solid #CB181D;
+    border: 1.8px solid #CB181D;
     color: #CB181D;
 }
 
