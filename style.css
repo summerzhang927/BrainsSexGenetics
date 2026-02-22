@@ -66,7 +66,7 @@ sup, sub {
    三组颜色系统
    ============================== */
 
-/* --- 1. 顶部概述区徽章（实色背景+白字） --- */
+/* --- 1. 顶部概述区徽章（实色背景 + 白字） --- */
 .badge {
     display: inline-block;
     padding: 3px 10px;
@@ -82,24 +82,62 @@ sup, sub {
 .badge-male     { background-color: #2171B5; }
 .badge-female   { background-color: #CB181D; }
 
-/* --- 2. 表格 Sample Group 列小标签（实色背景+白字） --- */
-.group-tag {
-    display: inline-block;
-    padding: 2px 9px;
-    border-radius: 3px;
-    font-size: 0.85em;
-    font-weight: bold;
-    color: #ffffff;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
+/* --- 2. 整行底色 + 文字颜色（用于第1、3部分表格） --- */
+
+/* Combined 行：淡紫底色 + 紫色文字 */
+tr.row-combined td {
+    background-color: #f3eefa;
+    color: #7540A7;
+    font-weight: 600;
 }
 
-.group-tag-combined { background-color: #7540A7; }
-.group-tag-male     { background-color: #2171B5; }
-.group-tag-female   { background-color: #CB181D; }
+tr.row-combined td a {
+    color: #7540A7;
+}
 
-/* --- 3. 第5部分 h3 标题（淡底色+彩色边框+彩色文字） --- */
-/* Combined：淡紫底色 + 紫色边框 + 紫色文字 */
+tr.row-combined td a:hover {
+    color: #4a2070;
+    text-decoration: underline;
+}
+
+/* Male 行：淡蓝底色 + 蓝色文字 */
+tr.row-male td {
+    background-color: #e8f2fb;
+    color: #2171B5;
+    font-weight: 600;
+}
+
+tr.row-male td a {
+    color: #2171B5;
+}
+
+tr.row-male td a:hover {
+    color: #144f80;
+    text-decoration: underline;
+}
+
+/* Female 行：淡红底色 + 红色文字 */
+tr.row-female td {
+    background-color: #fdecea;
+    color: #CB181D;
+    font-weight: 600;
+}
+
+tr.row-female td a {
+    color: #CB181D;
+}
+
+tr.row-female td a:hover {
+    color: #8b0f13;
+    text-decoration: underline;
+}
+
+/* 覆盖默认的斑马纹和 hover，防止干扰行颜色 */
+tr.row-combined:hover td { background-color: #ead9f7; }
+tr.row-male:hover td     { background-color: #d0e8f8; }
+tr.row-female:hover td   { background-color: #fad5d3; }
+
+/* --- 3. 第5部分 h3 标题（淡底色 + 彩色边框 + 彩色文字） --- */
 h3.group-h3-combined {
     display: block;
     padding: 6px 14px;
@@ -113,7 +151,6 @@ h3.group-h3-combined {
     color: #7540A7;
 }
 
-/* Male：淡蓝底色 + 蓝色边框 + 蓝色文字 */
 h3.group-h3-male {
     display: block;
     padding: 6px 14px;
@@ -127,7 +164,6 @@ h3.group-h3-male {
     color: #2171B5;
 }
 
-/* Female：淡红底色 + 红色边框 + 红色文字 */
 h3.group-h3-female {
     display: block;
     padding: 6px 14px;
@@ -146,11 +182,9 @@ a.link-combined { color: #7540A7; font-weight: bold; }
 a.link-male     { color: #2171B5; font-weight: bold; }
 a.link-female   { color: #CB181D; font-weight: bold; }
 
-a.link-combined:hover,
-a.link-male:hover,
-a.link-female:hover {
-    text-decoration: underline;
-}
+a.link-combined:hover { color: #4a2070; text-decoration: underline; }
+a.link-male:hover     { color: #144f80; text-decoration: underline; }
+a.link-female:hover   { color: #8b0f13; text-decoration: underline; }
 
 /* --- 5. IDP表格内遗传力列文字颜色 --- */
 .h2-combined { color: #7540A7; font-weight: bold; }
@@ -231,7 +265,7 @@ code {
 }
 
 /* ==============================
-   表格
+   表格（通用）
    ============================== */
 table {
     width: 100%;
@@ -259,11 +293,12 @@ tr:last-child td {
     border-bottom: none;
 }
 
-tr:nth-child(even) td {
+/* 默认斑马纹（只对没有 row-* class 的行生效） */
+tr:not(.row-combined):not(.row-male):not(.row-female):nth-child(even) td {
     background-color: #f7faff;
 }
 
-tr:hover td {
+tr:not(.row-combined):not(.row-male):not(.row-female):hover td {
     background-color: #eef4fb;
 }
 
