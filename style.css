@@ -1,0 +1,211 @@
+/* ============================
+   全局样式
+   ============================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #dceefb;  /* 淡蓝色背景，模仿Big40 */
+    color: #1a1a1a;
+    line-height: 1.7;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1050px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 35px 40px;
+    border-radius: 6px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
+
+/* ============================
+   标题样式
+   ============================ */
+h1 {
+    font-size: 1.9em;
+    color: #004a80;
+    border-bottom: 3px solid #004a80;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.35em;
+    color: #005a9e;
+    margin-top: 40px;
+    margin-bottom: 12px;
+    border-left: 5px solid #005a9e;
+    padding-left: 10px;
+}
+
+h3 {
+    font-size: 1.1em;
+    color: #0070c0;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+/* ============================
+   链接样式
+   ============================ */
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #004499;
+}
+
+/* ============================
+   导航栏
+   ============================ */
+.nav-bar {
+    background-color: #e8f4fd;
+    border: 1px solid #b3d4f0;
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.nav-bar a {
+    font-weight: bold;
+    font-size: 0.95em;
+    white-space: nowrap;
+}
+
+/* ============================
+   信息提示框
+   ============================ */
+.info-box {
+    background-color: #e8f4fd;
+    border-left: 5px solid #0070c0;
+    padding: 14px 18px;
+    margin: 14px 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.95em;
+}
+
+/* ============================
+   代码/命令框
+   ============================ */
+.code-box {
+    background-color: #f5f5f5;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.88em;
+    overflow-x: auto;
+    margin: 8px 0 14px 0;
+    color: #333;
+    word-break: break-all;
+}
+
+code {
+    background-color: #f0f0f0;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.88em;
+}
+
+/* ============================
+   表格样式
+   ============================ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 24px 0;
+    font-size: 0.93em;
+}
+
+th {
+    background-color: #005a9e;
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: bold;
+}
+
+td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #dde8f5;
+    vertical-align: top;
+}
+
+tr:nth-child(even) td {
+    background-color: #f0f7ff;
+}
+
+tr:hover td {
+    background-color: #dceefb;
+}
+
+/* ============================
+   IDP表格（大表格专用）
+   ============================ */
+.idp-table th {
+    font-size: 0.85em;
+}
+
+.idp-table td {
+    font-size: 0.85em;
+    padding: 7px 10px;
+}
+
+.tag-smri {
+    background-color: #c8e6c9;
+    color: #1b5e20;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.tag-dmri {
+    background-color: #bbdefb;
+    color: #0d47a1;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+/* ============================
+   页脚
+   ============================ */
+footer {
+    margin-top: 50px;
+    padding-top: 16px;
+    border-top: 1px solid #ccc;
+    color: #777;
+    font-size: 0.85em;
+    text-align: center;
+}
+
+/* ============================
+   响应式（手机端适配）
+   ============================ */
+@media (max-width: 700px) {
+    .container {
+        padding: 20px 16px;
+    }
+    .nav-bar {
+        flex-direction: column;
+        gap: 8px;
+    }
+    table {
+        font-size: 0.8em;
+    }
+}
