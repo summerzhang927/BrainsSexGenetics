@@ -66,7 +66,7 @@ sup, sub {
    三组颜色系统
    ============================== */
 
-/* --- 1. 顶部概述区徽章（实色背景 + 白字） --- */
+/* --- 1. 顶部概述区徽章 --- */
 .badge {
     display: inline-block;
     padding: 3px 10px;
@@ -82,97 +82,82 @@ sup, sub {
 .badge-male     { background-color: #2171B5; }
 .badge-female   { background-color: #CB181D; }
 
-/* --- 2. 表格整行底色 + 文字颜色 --- */
+/* --- 2. 表格行：左侧彩色边框条设计 --- */
 
-/* Combined 行：淡紫底色 + 紫色文字 */
-tr.row-combined td {
-    background-color: #f3eefa;
-    color: #7540A7;
-    font-weight: 600;
-}
-tr.row-combined td a {
-    color: #7540A7;
-}
-tr.row-combined td a:hover {
-    color: #4a2070;
-    text-decoration: underline;
-}
-tr.row-combined:hover td {
-    background-color: #ead9f7;
-}
-
-/* Male 行：淡蓝底色 + 蓝色文字 */
-tr.row-male td {
-    background-color: #e8f2fb;
-    color: #2171B5;
-    font-weight: 600;
-}
-tr.row-male td a {
-    color: #2171B5;
-}
-tr.row-male td a:hover {
-    color: #144f80;
-    text-decoration: underline;
-}
-tr.row-male:hover td {
-    background-color: #d0e8f8;
-}
-
-/* Female 行：淡红底色 + 红色文字 */
+/* 共用底色重置 */
+tr.row-combined td,
+tr.row-male td,
 tr.row-female td {
-    background-color: #fdecea;
-    color: #CB181D;
-    font-weight: 600;
-}
-tr.row-female td a {
-    color: #CB181D;
-}
-tr.row-female td a:hover {
-    color: #8b0f13;
-    text-decoration: underline;
-}
-tr.row-female:hover td {
-    background-color: #fad5d3;
+    background-color: #ffffff;
+    font-weight: normal;
+    color: #1a1a1a;
 }
 
-/* --- 3. 第5部分 h3 标题
-         圆角边框 + 淡底色 + 彩色文字
-         宽度自适应文字（inline-block）       --- */
+/* Combined：紫色左边框 + 第一列紫色加粗文字 */
+tr.row-combined td:first-child {
+    border-left: 4px solid #7540A7;
+    padding-left: 12px;
+    color: #7540A7;
+    font-weight: 700;
+}
+tr.row-combined td a         { color: #1a56a0; }
+tr.row-combined td a:hover   { color: #0a2a5e; text-decoration: underline; }
+tr.row-combined:hover td     { background-color: #f9f5fd; }
 
+/* Male：蓝色左边框 + 第一列蓝色加粗文字 */
+tr.row-male td:first-child {
+    border-left: 4px solid #2171B5;
+    padding-left: 12px;
+    color: #2171B5;
+    font-weight: 700;
+}
+tr.row-male td a             { color: #1a56a0; }
+tr.row-male td a:hover       { color: #0a2a5e; text-decoration: underline; }
+tr.row-male:hover td         { background-color: #f5f9fe; }
+
+/* Female：红色左边框 + 第一列红色加粗文字 */
+tr.row-female td:first-child {
+    border-left: 4px solid #CB181D;
+    padding-left: 12px;
+    color: #CB181D;
+    font-weight: 700;
+}
+tr.row-female td a           { color: #1a56a0; }
+tr.row-female td a:hover     { color: #0a2a5e; text-decoration: underline; }
+tr.row-female:hover td       { background-color: #fff8f8; }
+
+/* --- 3. 第5部分 h3 标题（圆角边框 + 淡底色 + 彩色文字，宽度随文字） --- */
 h3.group-h3-combined,
 h3.group-h3-male,
 h3.group-h3-female {
-    display: inline-block;      /* 宽度随文字自适应 */
+    display: inline-block;
     padding: 5px 18px;
     margin-top: 28px;
     margin-bottom: 10px;
-    border-radius: 6px;         /* 圆角 */
+    border-radius: 6px;
     font-size: 1.0em;
     font-weight: bold;
 }
 
-/* Combined：淡紫底色 + 紫色边框 + 紫色文字 */
 h3.group-h3-combined {
     background-color: #f3eefa;
     border: 1.8px solid #7540A7;
     color: #7540A7;
 }
 
-/* Male：淡蓝底色 + 蓝色边框 + 蓝色文字 */
 h3.group-h3-male {
     background-color: #e8f2fb;
     border: 1.8px solid #2171B5;
     color: #2171B5;
 }
 
-/* Female：淡红底色 + 红色边框 + 红色文字 */
 h3.group-h3-female {
     background-color: #fdecea;
     border: 1.8px solid #CB181D;
     color: #CB181D;
 }
 
-/* --- 4. IDP表格内曼哈顿图链接颜色 --- */
+/* --- 4. IDP表格内链接颜色 --- */
 a.link-combined { color: #7540A7; font-weight: bold; }
 a.link-male     { color: #2171B5; font-weight: bold; }
 a.link-female   { color: #CB181D; font-weight: bold; }
@@ -288,7 +273,7 @@ tr:last-child td {
     border-bottom: none;
 }
 
-/* 默认斑马纹（只对没有 row-* class 的行生效） */
+/* 默认斑马纹（只对普通行生效） */
 tr:not(.row-combined):not(.row-male):not(.row-female):nth-child(even) td {
     background-color: #f7faff;
 }
@@ -329,7 +314,7 @@ tr:not(.row-combined):not(.row-male):not(.row-female):hover td {
 }
 
 /* ==============================
-   搜索栏（IDP表格页用）
+   搜索栏
    ============================== */
 .search-bar {
     display: flex;
