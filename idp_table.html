@@ -5,46 +5,34 @@
     <title>IDP Table – Brain Imaging GWAS</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* 搜索框样式 */
-        .search-bar {
-            margin: 16px 0;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .search-bar input, .search-bar select {
-            padding: 8px 12px;
-            border: 1px solid #aaa;
-            border-radius: 4px;
-            font-size: 0.95em;
-        }
-        .search-bar input {
-            width: 280px;
-        }
-        #resultCount {
-            color: #555;
-            font-size: 0.9em;
-        }
+        /* 遗传力列的颜色区分 */
+        .h2-combined { color: #7540A7; font-weight: bold; }
+        .h2-male     { color: #2171B5; font-weight: bold; }
+        .h2-female   { color: #CB181D; font-weight: bold; }
     </style>
 </head>
 <body>
 <div class="container">
 
     <p><a href="index.html">← Back to Main Page</a></p>
+
     <h1>Table of IDPs (805 Imaging-Derived Phenotypes)</h1>
 
     <div class="info-box">
         <strong>Column guide:</strong><br>
-        • <strong>IDP ID</strong>: Unique identifier (links to Manhattan plots for each group)<br>
-        • <strong>Category</strong>: sMRI (structural MRI) or dMRI (diffusion MRI)<br>
-        • <strong>N Combined / Male / Female</strong>: Actual sample sizes (may vary slightly by IDP)<br>
-        • <strong>h² (Combined)</strong>: SNP heritability estimate from combined analysis
+        &bull; <strong>IDP ID</strong>: Unique identifier (links to Manhattan plots for each group)<br>
+        &bull; <strong>Modality</strong>: sMRI (structural MRI) or dMRI (diffusion MRI)<br>
+        &bull; <strong>N (Combined / Male / Female)</strong>: Actual sample sizes<br>
+        &bull; <strong><em>h</em><sup>2</sup> &plusmn; SE (Combined)</strong>: SNP heritability estimate from sex-combined analysis<br>
+        &bull; <strong><em>h</em><sup>2</sup> &plusmn; SE (Male)</strong>: SNP heritability estimate from male-only analysis<br>
+        &bull; <strong><em>h</em><sup>2</sup> &plusmn; SE (Female)</strong>: SNP heritability estimate from female-only analysis
     </div>
 
-    <!-- 搜索和筛选功能 -->
+    <!-- 搜索和筛选 -->
     <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="🔍 Search IDP name or description..." oninput="filterTable()">
+        <input type="text" id="searchInput"
+               placeholder="Search IDP name or description..."
+               oninput="filterTable()">
         <select id="categoryFilter" onchange="filterTable()">
             <option value="all">All Modalities</option>
             <option value="sMRI">sMRI only</option>
@@ -53,7 +41,7 @@
         <span id="resultCount">Showing 805 IDPs</span>
     </div>
 
-    <!-- IDP 大表格 -->
+    <!-- IDP 主表格 -->
     <table class="idp-table" id="idpTable">
         <thead>
             <tr>
@@ -62,83 +50,88 @@
                 <th>Modality</th>
                 <th>Category</th>
                 <th>Description</th>
-                <th>N (Combined)</th>
-                <th>N (Male)</th>
-                <th>N (Female)</th>
-                <th>h² ± SE (Combined)</th>
+                <th>N<br>(Combined)</th>
+                <th>N<br>(Male)</th>
+                <th>N<br>(Female)</th>
+                <th><em>h</em><sup>2</sup> &plusmn; SE<br>
+                    <span class="h2-combined">(Combined)</span></th>
+                <th><em>h</em><sup>2</sup> &plusmn; SE<br>
+                    <span class="h2-male">(Male)</span></th>
+                <th><em>h</em><sup>2</sup> &plusmn; SE<br>
+                    <span class="h2-female">(Female)</span></th>
                 <th>Manhattan Plots</th>
-                <th>Download Sumstats</th>
             </tr>
         </thead>
         <tbody id="idpTableBody">
-            <!-- 
-            ================================================
-            ⚠️ 重要说明：
-            这里是你需要手动填写你805个IDP数据的地方。
-            下面的示例行展示了格式。
-            
-            你有两个选择：
-            选项A：手动复制粘贴（只适合少量IDP）
-            选项B：用Python自动生成（推荐！见文件4）
-            ================================================
-            
-            示例行格式（复制这个格式）：
+
+            <!--
+            =====================================================
+            示例行（格式模板）
+            注意：
+            - data-modality 填 sMRI 或 dMRI（用于筛选）
+            - Manhattan 链接使用三种颜色的 class
+            - 没有遗传力数据时填 N/A
+            =====================================================
             -->
             <tr data-modality="sMRI">
                 <td>0001</td>
                 <td>Left Hippocampus Volume</td>
                 <td><span class="tag-smri">sMRI</span></td>
                 <td>Subcortical Volume</td>
-                <td>Volume of the left hippocampus (mm³)</td>
+                <td>Volume of the left hippocampus (mm&sup3;)</td>
                 <td>45,882</td>
                 <td>22,941</td>
                 <td>22,941</td>
-                <td>0.32 ± 0.03</td>
+                <td class="h2-combined">0.32 &plusmn; 0.03</td>
+                <td class="h2-male">0.29 &plusmn; 0.04</td>
+                <td class="h2-female">0.35 &plusmn; 0.04</td>
                 <td>
-                    <a href="你的OSF链接/plots/combined_0001.png">Combined</a> |
-                    <a href="你的OSF链接/plots/male_0001.png">Male</a> |
-                    <a href="你的OSF链接/plots/female_0001.png">Female</a>
-                </td>
-                <td>
-                    <a href="你的OSF链接/combined/combined_0001.txt.gz">C</a> |
-                    <a href="你的OSF链接/male/male_0001.txt.gz">M</a> |
-                    <a href="你的OSF链接/female/female_0001.txt.gz">F</a>
+                    <a class="link-combined"
+                       href="YOUR_OSF_LINK/plots/combined/combined_0001.png"
+                       target="_blank">Combined</a>
+                    &nbsp;|&nbsp;
+                    <a class="link-male"
+                       href="YOUR_OSF_LINK/plots/male/male_0001.png"
+                       target="_blank">Male</a>
+                    &nbsp;|&nbsp;
+                    <a class="link-female"
+                       href="YOUR_OSF_LINK/plots/female/female_0001.png"
+                       target="_blank">Female</a>
                 </td>
             </tr>
 
-            <!-- 在这里继续添加更多行... -->
-            <!-- 推荐使用下方的Python脚本自动生成所有805行 -->
+            <!-- 在这里继续添加其余804行，或用Python脚本生成 -->
 
         </tbody>
     </table>
 
 </div>
 
-<!-- 搜索功能的JavaScript代码 -->
+<!-- 搜索/筛选逻辑 -->
 <script>
 function filterTable() {
     const searchText = document.getElementById('searchInput').value.toLowerCase();
-    const category = document.getElementById('categoryFilter').value;
-    const rows = document.querySelectorAll('#idpTableBody tr');
-    let visibleCount = 0;
+    const category   = document.getElementById('categoryFilter').value;
+    const rows       = document.querySelectorAll('#idpTableBody tr');
+    let visible = 0;
 
     rows.forEach(row => {
-        const text = row.textContent.toLowerCase();
+        const text     = row.textContent.toLowerCase();
         const modality = row.getAttribute('data-modality');
 
-        const matchSearch = text.includes(searchText);
+        const matchSearch   = text.includes(searchText);
         const matchCategory = (category === 'all') || (modality === category);
 
         if (matchSearch && matchCategory) {
             row.style.display = '';
-            visibleCount++;
+            visible++;
         } else {
             row.style.display = 'none';
         }
     });
 
-    document.getElementById('resultCount').textContent = 
-        `Showing ${visibleCount} of 805 IDPs`;
+    document.getElementById('resultCount').textContent =
+        `Showing ${visible} of 805 IDPs`;
 }
 </script>
 
